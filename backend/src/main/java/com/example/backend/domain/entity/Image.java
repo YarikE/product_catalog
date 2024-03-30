@@ -1,9 +1,9 @@
 package com.example.backend.domain.entity;
 
-import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.types.Binary;
+import jakarta.persistence.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
@@ -12,6 +12,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Image {
     @Id
     private String id;
-
     private Binary image;
 }

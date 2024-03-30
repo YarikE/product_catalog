@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
-public class ImagesService {
+public class ImageService {
 
     private final ImageRepository imageRepository;
 

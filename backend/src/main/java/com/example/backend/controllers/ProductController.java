@@ -1,34 +1,35 @@
 package com.example.backend.controllers;
 
+import com.example.backend.controllers.customException.CustomException;
 import lombok.RequiredArgsConstructor;
-import com.example.backend.domain.dto.CatDto;
-import com.example.backend.domain.entity.Cat;
-import com.example.backend.repository.CatRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.backend.domain.dto.ProductDto;
+import com.example.backend.domain.entity.Product;
+import com.example.backend.service.ProductService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequiredArgsConstructor
+@RequestMapping("/product")
+@RequiredArgsConstructor
 public class ProductController {
 
-    private final CatRepository catRepository;
+    private final ProductService productService;
 
-    @Autowired
-    public ProductController(CatRepository catRepository) {
-        this.catRepository = catRepository;
+    /**
+     * Сохранить продукт
+     *
+     * @param productDto Параметры продукта
+     */
+    @PostMapping("/save")
+    public Product saveProduct(@RequestBody ProductDto productDto) throws CustomException {
+
+        if (productDto.getCategory_id() == null) {
+            throw new CustomException("У товара должна быть категория");
+        }
+
+        return productService.save(productDto);
     }
-
-    @PostMapping("/cat")
-    public String createCat(@RequestBody CatDto catDto) {
-        Cat cat = new Cat();
-        cat.setName(catDto.getName());
-        cat.setBirthDay(catDto.getBirthDay());
-
-        catRepository.saveCat(cat);
-
-        return "Cat saved successfully";
-    }
-
 }

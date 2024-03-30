@@ -1,7 +1,7 @@
 package com.example.backend.controllers;
 
 import com.example.backend.domain.entity.Image;
-import com.example.backend.service.ImagesService;
+import com.example.backend.service.ImageService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,20 +15,25 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class ImageController {
 
-    private final ImagesService saveImagesService;
+    private final ImageService saveImagesService;
 
+    /**
+     * Загрузить изображение в базу
+     *
+     * @param file Изображение до 16мб
+     */
     @PostMapping
     public String uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
         return saveImagesService.addImage(file);
     }
 
+    /**
+     * Получить изображение
+     *
+     * @param id Id изображения
+     */
     @GetMapping("/{id}")
     public Image getImage(@PathVariable String id) {
         return saveImagesService.getImage(id);
-    }
-
-    @GetMapping("/test")
-    public String test() {
-        return "test";
     }
 }
