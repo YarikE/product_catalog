@@ -8,6 +8,8 @@ import com.example.backend.domain.entity.Category;
 import com.example.backend.repository.CategoryRepository;
 import com.example.backend.repository.ProductRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
@@ -16,12 +18,12 @@ public class ProductService {
 
     private final CategoryRepository categoryRepository;
 
+    /**
+     * Сохранить продукт
+     *
+     * @param productDto Параметры продукта
+     */
     public Product save(ProductDto productDto) {
-//        Category category = null;
-//        if (productDto.getCategory_id() != null) {
-//            category = categoryRepository.findById(productDto.getCategory_id()).orElse(null);
-//        }
-
         Category category = categoryRepository.findById(productDto.getCategory_id()).orElse(null);
 
         Product product = new Product()
@@ -34,5 +36,12 @@ public class ProductService {
                 .setStatus(productDto.getStatus());
 
         return productRepository.save(product);
+    }
+
+    /**
+     * Найти все
+     */
+    public List<Product> findAll() {
+        return productRepository.findAll();
     }
 }

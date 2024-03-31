@@ -1,7 +1,5 @@
 package com.example.backend.controllers.customException;
 
-import lombok.Getter;
-
 /**
  * Класс исключения
  */
