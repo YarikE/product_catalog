@@ -1,0 +1,22 @@
+.header__links {
+    padding-left: 25px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.links__item {
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.links__item:hover {
+    background-color: #e4e4e4;
+}
+
+.line {
+    border-bottom: 1px solid black;
+}
