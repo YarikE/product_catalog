@@ -1,0 +1,14 @@
+.card-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-list__item {
+    width: 15%;
+    margin: 20px;
+    padding: 10px;
+    border: 1px black solid;
+    border-radius: 5px;
+    height: 450px;
+}

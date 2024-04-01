@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
-import categoryRoutes from "../../views/Categories/routes";
-import productRoutes from "../../views/Products/routes";
+import categoryRoutes from "../../../views/Categories/routes";
+import productRoutes from "../../../views/Products/routes";
 
-import "./global-components.css";
+import "../css/global-components.css";
 
 function Header() {
     return (

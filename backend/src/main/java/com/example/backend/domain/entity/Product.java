@@ -1,7 +1,7 @@
 package com.example.backend.domain.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
+import jakarta.persistence.*;
 import jakarta.annotation.Nullable;
 import lombok.experimental.Accessors;
 

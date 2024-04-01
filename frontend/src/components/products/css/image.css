@@ -1,0 +1,23 @@
+img {
+    max-width: 250px;
+}
+
+.image-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    min-width: 250px;
+    min-height: 250px;
+}
+
+.image-component__empty {
+    display: flex;
+    width: 250px;
+    height: 250px;
+    background-color: #ddd6d6;
+    color: #434343;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}

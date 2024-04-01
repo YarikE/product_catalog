@@ -1,0 +1,28 @@
+.product-view {
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+.product-view__header {
+    margin-left: 55px;
+}
+
+.modal-button {
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.product-view__create {
+    margin-left: 55px;
+}
+
+.create__header,
+.modal-button {
+    display: inline-block;
+    margin-right: 10px;
+}

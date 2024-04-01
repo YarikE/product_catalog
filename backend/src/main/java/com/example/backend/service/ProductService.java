@@ -9,6 +9,7 @@ import com.example.backend.repository.CategoryRepository;
 import com.example.backend.repository.ProductRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -39,9 +40,44 @@ public class ProductService {
     }
 
     /**
-     * Найти все
+     * Найти все продукты
      */
     public List<Product> findAll() {
         return productRepository.findAll();
+    }
+
+    /**
+     * Удалить запись о продукте по ID
+     *
+     * @param id ID продукта
+     */
+    public Boolean deleteById(Long id) {
+        try {
+            productRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Установить статус
+     *
+     * @param id Id продукта
+     * @param status Статус продукта
+     */
+    public Boolean setProductStatus(Long id, Boolean status) {
+//        try {
+            Product product =  productRepository.findById(id).orElse(null);
+            if (product == null) {
+                return false;
+            }
+            product.setStatus(status);
+            productRepository.save(product);
+
+            return true;
+//        } catch (Exception e) {
+//            return false;
+//        }
     }
 }

@@ -1,7 +1,6 @@
 package com.example.backend.domain.dto.response;
 
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
 
 /**
  * ДТО ответа api

@@ -1,0 +1,83 @@
+.header__links {
+    padding-left: 25px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.links__item {
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.links__item:hover {
+    background-color: #e4e4e4;
+}
+
+.line {
+    border-bottom: 1px solid black;
+}
+
+.delete-button {
+    background-color: #ff7b82;
+    border: #e14b4b solid 2px;
+    border-radius: 5px;
+}
+
+.delete-button__icon {
+    height: 20px;
+    width: 20px;
+}
+
+.edit-button {
+    background-color: #7bb9ff;
+    border: #1c3cde solid 2px;
+    border-radius: 5px;
+}
+
+.edit-button__icon {
+    height: 20px;
+    width: 20px;
+}
+
+
+.switcher {
+    width: 42px;
+    height: 21px;
+    border-radius: 10.5px;
+    background-color: #d3d3d3;
+    display: flex;
+    align-items: center;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.switcher-on {
+    background-color: #63ccff;
+}
+
+.switcher-off {
+    background-color: #999999;
+}
+
+.switcher-circle {
+    width: 18.2px;
+    height: 18.2px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    transition: transform 0.3s;
+}
+
+.switcher-circle-on {
+    transform: translateX(21px);
+}
+
+.switcher-circle-off {
+    transform: translateX(0);
+}
+
+
