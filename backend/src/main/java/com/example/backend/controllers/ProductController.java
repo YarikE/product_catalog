@@ -1,7 +1,7 @@
 package com.example.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
-import com.example.backend.domain.dto.ProductDto;
+import com.example.backend.domain.dto.ProductCreateDto;
 import com.example.backend.domain.entity.Product;
 import org.springframework.web.bind.annotation.*;
 import com.example.backend.service.ProductService;
@@ -21,16 +21,16 @@ public class ProductController {
     /**
      * Сохранить продукт
      *
-     * @param productDto Параметры продукта
+     * @param productCreateDto Параметры продукта
      */
     @PostMapping("/save")
-    public Product saveProduct(@RequestBody ProductDto productDto) throws CustomException {
+    public Product saveProduct(@RequestBody ProductCreateDto productCreateDto) throws CustomException {
 
-        if (productDto.getCategory_id() == null) {
+        if (productCreateDto.getCategory_id() == null) {
             throw new CustomException("У товара должна быть категория");
         }
 
-        return productService.save(productDto);
+        return productService.save(productCreateDto);
     }
 
     /**

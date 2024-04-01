@@ -62,9 +62,15 @@ const requests = {
             })
     },
 
-
+    /**
+     * Сохранить продукт
+     *
+     * @param requestBody Тело запроса
+     *
+     * @return {Promise<axios.AxiosResponse<any> | void>}
+     */
     saveProduct: (requestBody) => {
-        return axios.post()
+        return axios.post(basePath + "/product/save", requestBody)
             .then(response => {
                 return response.data;
             })

@@ -1,6 +1,7 @@
 import React, {useRef, useState} from "react";
 
 import imageRequests from "../../requests/image/imageRequests";
+import productRequests from "../../requests/product/productRequests";
 
 import DropDown from "./DropDown";
 import ToggleButton from "../global/buttons/ToggleButton";
@@ -62,7 +63,7 @@ const SaveProductModal = ({ isOpen, onClose }) => {
             fileId = null;
         }
 
-        console.log({
+        const requestBody = {
             name: formData.get("name"),
             description: formData.get("description"),
             price: formData.get("price"),
@@ -70,7 +71,11 @@ const SaveProductModal = ({ isOpen, onClose }) => {
             category_id: selectedItemId,
             status: status,
             add_date: getNowDate(),
-        });
+        }
+
+        const saveResponse = await productRequests.saveProduct(requestBody);
+
+        console.log(saveResponse);
 
         onClose();
     };

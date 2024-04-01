@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class ProductDto {
+public class ProductCreateDto {
 
     /**
      * Название

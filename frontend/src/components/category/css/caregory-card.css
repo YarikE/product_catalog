@@ -1,0 +1,16 @@
+.category-card {
+    width: 30%;
+    border: black solid 1px;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+}
+
+.category-card__buttons,
+.category-card__content {
+    display: inline-block;
+}
+
+.category-card__buttons {
+    margin-left: 150px;
+}

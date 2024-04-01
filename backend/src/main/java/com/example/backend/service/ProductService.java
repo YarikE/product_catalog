@@ -1,15 +1,15 @@
 package com.example.backend.service;
 
+import com.example.backend.domain.dto.ProductUpdateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.example.backend.domain.entity.Product;
-import com.example.backend.domain.dto.ProductDto;
+import com.example.backend.domain.dto.ProductCreateDto;
 import com.example.backend.domain.entity.Category;
 import com.example.backend.repository.CategoryRepository;
 import com.example.backend.repository.ProductRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,19 +22,19 @@ public class ProductService {
     /**
      * Сохранить продукт
      *
-     * @param productDto Параметры продукта
+     * @param productCreateDto Параметры продукта
      */
-    public Product save(ProductDto productDto) {
-        Category category = categoryRepository.findById(productDto.getCategory_id()).orElse(null);
+    public Product save(ProductCreateDto productCreateDto) {
+        Category category = categoryRepository.findById(productCreateDto.getCategory_id()).orElse(null);
 
         Product product = new Product()
-                .setName(productDto.getName())
-                .setDescription(productDto.getDescription())
-                .setPrice(productDto.getPrice())
-                .setImage_id(productDto.getImage_id())
+                .setName(productCreateDto.getName())
+                .setDescription(productCreateDto.getDescription())
+                .setPrice(productCreateDto.getPrice())
+                .setImage_id(productCreateDto.getImage_id())
                 .setCategory(category)
-                .setAdd_date(productDto.getAdd_date())
-                .setStatus(productDto.getStatus());
+                .setAdd_date(productCreateDto.getAdd_date())
+                .setStatus(productCreateDto.getStatus());
 
         return productRepository.save(product);
     }
@@ -67,7 +67,7 @@ public class ProductService {
      * @param status Статус продукта
      */
     public Boolean setProductStatus(Long id, Boolean status) {
-//        try {
+        try {
             Product product =  productRepository.findById(id).orElse(null);
             if (product == null) {
                 return false;
@@ -76,8 +76,37 @@ public class ProductService {
             productRepository.save(product);
 
             return true;
-//        } catch (Exception e) {
-//            return false;
-//        }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Отредактировать запись о продукте
+     *
+     * @param productUpdateDto Параметры для редактирования
+     */
+    public Boolean editProduct(ProductUpdateDto productUpdateDto) {
+        try {
+            Product product = productRepository.findById(productUpdateDto.getId()).orElse(null);
+
+            if (product == null) {
+                return false;
+            }
+
+            Category category = categoryRepository.findById(productUpdateDto.getCategory_id()).orElse(null);
+
+            product.setName(productUpdateDto.getName());
+            product.setDescription(productUpdateDto.getDescription());
+            product.setPrice(productUpdateDto.getPrice());
+            product.setImage_id(productUpdateDto.getImage_id());
+            product.setCategory(category);
+            product.setAdd_date(productUpdateDto.getAdd_date());
+            product.setStatus(productUpdateDto.getStatus());
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

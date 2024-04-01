@@ -3,5 +3,9 @@
 }
 
 .category-view__header {
-    margin-left: 55px;
+    margin-left: 70px;
+}
+
+.category-view__create {
+    margin-left: 70px;
 }

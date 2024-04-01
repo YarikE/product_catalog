@@ -1,6 +1,6 @@
 package com.example.backend.controllers;
 
-import com.example.backend.domain.dto.CategoryDto;
+import com.example.backend.domain.dto.CategoryCreateDto;
 import com.example.backend.service.CategoryService;
 import com.example.backend.domain.entity.Category;
 import lombok.RequiredArgsConstructor;
@@ -21,11 +21,11 @@ public class CategoryController {
     /**
      * Сохранить категорию
      *
-     * @param categoryDto Параметры категории
+     * @param categoryCreateDto Параметры категории
      */
     @PostMapping("/save")
-    public Category save(CategoryDto categoryDto) {
-        return categoryService.saveCategory(categoryDto);
+    public Category save(CategoryCreateDto categoryCreateDto) {
+        return categoryService.saveCategory(categoryCreateDto);
     }
 
     /**
