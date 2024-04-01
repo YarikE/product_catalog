@@ -27,6 +27,7 @@ function CardList() {
                         price={ item.price }
                         imageId={ item.image_id }
                         status={ item.status }
+                        categoryName={ item.category ? item.category.name : "Нет категории" }
                     />
                 </li>
             ))}

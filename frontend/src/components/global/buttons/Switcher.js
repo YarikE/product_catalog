@@ -8,7 +8,6 @@ const Switcher = ({ initialValue = false, productId }) => {
     const [isOn, setIsOn] = useState(initialValue);
 
     const toggleSwitch = () => {
-        console.log(productId, !isOn)
         productRequests.updateProductStatus(productId, !isOn);
     };
 

@@ -5,6 +5,24 @@ const basePath = "http://localhost:8080";
 const requests = {
 
     /**
+     * Сохранить изображение
+     *
+     * @param file Изображение
+     */
+    saveImage: (file) => {
+        const data = new FormData();
+        data.append('file', file);
+
+        return axios.post(basePath + "/image", data)
+            .then(response => {
+                return response.data;
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    },
+
+    /**
      * Получить изображение
      *
      * @param id Id изображения

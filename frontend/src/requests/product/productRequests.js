@@ -60,6 +60,17 @@ const requests = {
             .catch(err => {
                 console.log(err);
             })
+    },
+
+
+    saveProduct: (requestBody) => {
+        return axios.post()
+            .then(response => {
+                return response.data;
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 }
 

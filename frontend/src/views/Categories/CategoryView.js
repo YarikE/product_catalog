@@ -3,6 +3,7 @@ import "./css/category.css";
 import Switcher from "../../components/global/buttons/Switcher";
 import EditButton from "../../components/global/buttons/EditButton";
 import DeleteButton from "../../components/global/buttons/DeleteButton";
+import DropDown from "../../components/products/DropDown";
 
 function CategoryView() {
     return (
@@ -12,6 +13,7 @@ function CategoryView() {
                 <DeleteButton />
                 <EditButton />
                 <Switcher />
+                <DropDown />
             </div>
         </div>
     );

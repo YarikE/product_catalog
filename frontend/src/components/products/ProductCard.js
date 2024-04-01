@@ -1,12 +1,11 @@
 import Image from "./Image";
-import DeleteButton from "../global/buttons/DeleteButton";
-import EditButton from "../global/buttons/EditButton";
 import Switcher from "../global/buttons/Switcher";
+import EditButton from "../global/buttons/EditButton";
+import DeleteButton from "../global/buttons/DeleteButton";
 
 import productRequests from "../../requests/product/productRequests";
 
 import "./css/product-card.css"
-
 
 function ProductCard (props) {
 
@@ -23,26 +22,12 @@ function ProductCard (props) {
             <div className="product-card__name">Название: { props.name }</div>
             <div className="product-card__description">Описание: { props.description }</div>
             <div className="product-card__price">Цена: { props.price } ₽</div>
+            <div className="product-card__category">Категория: { props.categoryName }</div>
             <div className="product-card__switcher">
                 <Switcher initialValue={ props.status } productId={ props.id } />
             </div>
         </div>
     );
 }
-
-// name
-//
-// description
-//
-// image_id
-//
-// price
-//
-// status
-//
-// category.name
-// category.description
-//
-// add_date
 
 export default ProductCard;

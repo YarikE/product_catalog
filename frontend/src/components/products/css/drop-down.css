@@ -1,0 +1,13 @@
+.loading {
+    font-size: 16px;
+    color: #333;
+}
+
+.dropdown {
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+}
