@@ -1,4 +1,11 @@
-FROM ubuntu:latest
-LABEL authors="yaroslav"
+FROM openjdk:17-alpine
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY . /app/
+
+RUN ./mvnw package -DskipTests
+
+ENTRYPOINT ["java", "-jar", "./target/run-backend.jar"]
+
+# CMD while true; do sleep 1000; done
