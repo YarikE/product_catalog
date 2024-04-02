@@ -1,5 +1,6 @@
 package com.example.backend.service;
 
+import com.example.backend.controllers.customExceptions.CustomException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class CategoryService {
      *
      * @param id ID категории
      */
-    public Category getCategoryById(String id) {
+    public Category getCategoryById(Integer id) {
         return categoryRepository.findById(id).get();
     }
 
@@ -37,12 +38,12 @@ public class CategoryService {
      *
      * @param categoryCreateDto ДТО Категории
      */
-    public Category saveCategory(CategoryCreateDto categoryCreateDto) {
+    public void saveCategory(CategoryCreateDto categoryCreateDto) {
         Category category = new Category()
                 .setName(categoryCreateDto.getName())
                 .setDescription(categoryCreateDto.getDescription());
 
-        return categoryRepository.save(category);
+        categoryRepository.save(category);
     }
 
     /**
@@ -57,7 +58,7 @@ public class CategoryService {
      *
      * @param id ID категории
      */
-    public Boolean deleteCategoryById(String id) {
+    public Boolean deleteCategoryById(Integer id) {
         try {
             Category category = categoryRepository.findById(id).get();
             List<Product> products = productRepository.findByCategory(category);
@@ -79,7 +80,7 @@ public class CategoryService {
      *
      * @param categoryDto Обновленные параметры категории
      */
-    public Boolean editCategory(CategoryUpdateDto categoryDto) {
+    public void editCategory(CategoryUpdateDto categoryDto) throws CustomException {
         try {
 
             Category category = categoryRepository.findById(categoryDto.getId()).get();
@@ -87,10 +88,8 @@ public class CategoryService {
             category.setDescription(categoryDto.getDescription());
             categoryRepository.save(category);
 
-            return true;
-
         } catch (Exception e) {
-            return false;
+            throw new CustomException("Ошибка сервера: не получилось обновить категорию");
         }
     }
 }

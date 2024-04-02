@@ -1,4 +1,4 @@
-package com.example.backend.controllers.customException;
+package com.example.backend.controllers.customExceptions;
 
 /**
  * Класс исключения

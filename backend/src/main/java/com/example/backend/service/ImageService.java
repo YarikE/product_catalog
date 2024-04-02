@@ -1,11 +1,15 @@
 package com.example.backend.service;
 
-import com.example.backend.domain.entity.Image;
-import com.example.backend.repository.ImageRepository;
-import lombok.RequiredArgsConstructor;
-import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
+import org.bson.BsonBinarySubType;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import com.example.backend.repository.ImageRepository;
+
+import com.example.backend.domain.entity.Image;
+import com.example.backend.domain.dto.ImageCreateDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

@@ -14,22 +14,22 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long  id;
+    private Integer   id;
 
-    private String  name;
+    private String    name;
 
-    private String  description;
+    private String    description;
 
-    private double  price;
+    private double    price;
 
-    private String  image_id;
+    private String    image_id;
 
     @Nullable
     @ManyToOne
     @JoinColumn(name="category_id")
-    private Category category;
+    private Category  category;
 
     private LocalDate add_date;
 
-    private Boolean status;
+    private Boolean   status;
 }

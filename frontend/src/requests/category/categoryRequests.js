@@ -11,7 +11,6 @@ const requests = {
     getAllCategories: () => {
         return axios.get(basePath + "/category/all")
             .then(response => {
-                console.log(response.data);
                 return response.data;
             })
             .catch(err => {

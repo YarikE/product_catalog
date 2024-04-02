@@ -72,6 +72,7 @@ const requests = {
     saveProduct: (requestBody) => {
         return axios.post(basePath + "/product/save", requestBody)
             .then(response => {
+                alert(`${response.data.message}`);
                 return response.data;
             })
             .catch(err => {
